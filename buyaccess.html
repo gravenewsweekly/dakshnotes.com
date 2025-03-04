@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Buy Compiler Access - DakshNotes</title>
+  <title>Code Compiler - DakshNotes</title>
   <link rel="stylesheet" href="https://unpkg.com/98.css">
   <style>
     body { margin: 20px; }
     .window { width: 50%; margin: auto; }
-    .window-body { padding: 10px; }
+    .window-body { padding: 10px; text-align: center; }
     .btn { padding: 5px 10px; background: lightgray; border: 2px solid black; cursor: pointer; }
     .btn:hover { background: darkgray; }
   </style>
@@ -16,36 +16,13 @@
 <body>
   <div class="window">
     <div class="title-bar">
-      <div class="title-bar-text">💻 Unlock Code Compiler</div>
+      <div class="title-bar-text">💻 Free Code Compiler</div>
     </div>
     <div class="window-body">
-      <h2>Access the Compiler Tool for ₹50</h2>
-      <p>One-time payment for lifetime access.</p>
-      <button class="btn" onclick="redirectToPayment()">Buy Now</button>
+      <h2>Access the Free Compiler Tool</h2>
+      <p>No payments required. Enjoy coding for free!</p>
+      <a href="codecompiler.html"><button class="btn">Go to Compiler</button></a>
     </div>
   </div>
-
-  <script>
-    function redirectToPayment() {
-      // Redirect user to Razorpay payment page
-      window.open("https://razorpay.me/@dakshhande", "_blank");
-
-      // Wait for payment confirmation from the user
-      let userConfirmed = confirm("Have you completed the payment?");
-      
-      if (userConfirmed) {
-        alert("Access Unlocked! Redirecting to Compiler...");
-        localStorage.setItem("hasPaid", "true"); // Store access
-        window.location.href = "codecompiler.html"; // Redirect to tool
-      } else {
-        alert("Payment not completed! Please complete the payment to access the tool.");
-      }
-    }
-
-    // Redirect if already paid
-    if (localStorage.getItem("hasPaid") === "true") {
-      window.location.href = "codecompiler.html";
-    }
-  </script>
 </body>
 </html>
