@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Note-Taking Tool - DakshNotes</title>
+  <link rel="stylesheet" href="https://unpkg.com/98.css">
+  <style>
+    body {
+      margin: 20px;
+    }
+    .window {
+      width: 80%;
+      margin: auto;
+    }
+    .window-body {
+      padding: 10px;
+    }
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    nav ul li {
+      display: inline;
+      margin-right: 10px;
+    }
+    textarea {
+      width: 100%;
+      height: 300px;
+      font-family: monospace;
+      font-size: 14px;
+      border: 2px solid black;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 5px 10px;
+      border: 2px solid black;
+      background-color: lightgray;
+      text-decoration: none;
+      color: black;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: darkgray;
+    }
+  </style>
+</head>
+<body>
+  <div class="window" style="max-width: 600px;">
+    <div class="title-bar">
+      <div class="title-bar-text">📝 Note-Taking Tool</div>
+    </div>
+    <div class="window-body">
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="tools.html">Tools</a></li>
+        </ul>
+      </nav>
+      <hr>
+      <h1>Write Your Notes</h1>
+      <textarea id="noteArea" placeholder="Start typing your notes here..."></textarea>
+      <br>
+      <button class="btn" onclick="saveNote()">💾 Save</button>
+      <button class="btn" onclick="downloadNote()">📥 Download</button>
+    </div>
+  </div>
+
+  <footer style="text-align: center; margin-top: 20px;">
+    <p>&copy; 2025 DakshNotes. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Load saved note on page load
+    document.getElementById("noteArea").value = localStorage.getItem("savedNote") || "";
+
+    function saveNote() {
+      let noteContent = document.getElementById("noteArea").value;
+      localStorage.setItem("savedNote", noteContent);
+      alert("Note saved successfully!");
+    }
+
+    function downloadNote() {
+      let noteContent = document.getElementById("noteArea").value;
+      let blob = new Blob([noteContent], { type: "text/plain" });
+      let link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "MyNotes.txt";
+      link.click();
+    }
+  </script>
+</body>
+</html>
