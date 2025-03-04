@@ -34,12 +34,6 @@
   </footer>
 
   <script>
-    // Check if user has paid
-    if (localStorage.getItem("hasPaid") !== "true") {
-      alert("Access Denied! Please purchase access.");
-      window.location.href = "buyaccess.html";
-    }
-
     function runCode() {
       let code = document.getElementById("codeArea").value;
       let iframe = document.getElementById("preview").contentWindow.document;
